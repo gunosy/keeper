@@ -1,4 +1,5 @@
 # keeper
+[![Test](https://github.com/mocyuto/keeper/actions/workflows/ci.yml/badge.svg)](https://github.com/mocyuto/keeper/actions/workflows/ci.yml)
 
 `keeper` is package for Go that provides a mechanism for waiting a result of execution function until context cancel.
 
