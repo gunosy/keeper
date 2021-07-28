@@ -3,7 +3,6 @@ package keeper
 import (
 	"context"
 	"errors"
-	"time"
 )
 
 var FailedGetChannel = errors.New("failed to get Channel")
@@ -30,17 +29,13 @@ func ExecWithContext(ctx context.Context, f func() (interface{}, error)) (interf
 // wait channel result until context done
 func waitResult(ctx context.Context, ch chan result) (interface{}, error) {
 	var i result
-	for {
-		select {
-		case <-ctx.Done():
-			return i.value, ctx.Err()
-		case i, ok := <-ch:
-			if !ok {
-				return nil, FailedGetChannel
-			}
-			return i.value, i.err
-		default:
+	select {
+	case <-ctx.Done():
+		return i.value, ctx.Err()
+	case i, ok := <-ch:
+		if !ok {
+			return nil, FailedGetChannel
 		}
-		time.Sleep(1 * time.Millisecond)
+		return i.value, i.err
 	}
 }
