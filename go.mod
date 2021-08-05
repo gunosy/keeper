@@ -1,4 +1,4 @@
-module github.com/mocyuto/keeper
+module github.com/gunosy/keeper
 
 go 1.16
 
