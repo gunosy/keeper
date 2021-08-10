@@ -6,7 +6,7 @@
 ## Install
 
 ```
-go get github.com/mocyuto/keeper
+go get github.com/gunosy/keeper
 ```
 
 ## Usage
@@ -20,7 +20,7 @@ import (
     "context"
     "time"
 
-    "github.com/mocyuto/keeper"
+    "github.com/gunosy/keeper"
 )
 
 func findSomething(ctx context.Context, userID string) ([]int, error) {
